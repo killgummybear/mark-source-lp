@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Доказать, что маркетинг приносит деньги - Маркетинг от первоисточников</title>
+<meta name="description" content="Как доказать окупаемость маркетинга и обосновать бюджет цифрами: измерение, инкрементальность, LTV и unit-экономика на доказательной базе.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="stylesheet" href="app.css">
+<script>
+(function(){try{var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!rm&&'IntersectionObserver' in window)document.documentElement.classList.add('has-reveal');}catch(e){}})();
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <a class="brand" href="index.html"><span class="mark">М</span> Маркетинг от первоисточников</a>
+    <span class="spacer"></span>
+    <a class="back" href="index.html#cep">← Все ситуации</a>
+    <a class="btn btn-primary btn-sm" href="index.html#price" style="padding:11px 20px;font-size:14px">Начать бесплатно <span class="arr">→</span></a>
+  </div>
+</nav>
+
+<!-- HERO (асимметрия + градиент, под наложение stat-band) -->
+<header style="background:linear-gradient(165deg,var(--cream),var(--offwhite) 62%);padding:var(--section-y) 0 132px">
+  <div class="container">
+    <div class="hero-asym">
+      <div class="reveal">
+        <span class="eyebrow">Деньги · окупаемость</span>
+        <h1 style="margin-top:18px">Вы тратите бюджет - но не можете <span class="hl">доказать</span>, что он работает.</h1>
+        <p class="lead measure" style="margin-top:22px">Реклама запущена, отчёты сходятся, а на вопрос «это окупается?» - нечем ответить, кроме «вроде да». Этот блок курса даёт язык цифр, который понимают финансы и совет.</p>
+        <div style="display:flex;gap:14px;margin-top:30px;flex-wrap:wrap">
+          <a class="btn btn-primary btn-lg" href="#calc">Посчитать окупаемость <span class="arr">→</span></a>
+          <a class="btn btn-ghost btn-lg" href="#method">Что внутри</a>
+        </div>
+      </div>
+      <div class="reveal" style="--rd:90ms">
+        <div class="screen">
+          <div class="bar"><i></i><i></i><i></i><span class="path">unit-экономика · сводка</span></div>
+          <div class="body" style="background:var(--cream)">
+            <div style="font-family:var(--display);font-weight:600;font-size:13px;color:var(--ash);text-transform:uppercase;letter-spacing:.06em">Окупаемость когорты</div>
+            <div style="font-family:var(--display);font-weight:600;font-size:56px;color:var(--navy);line-height:1;margin:8px 0 2px;letter-spacing:-.03em">5,6×</div>
+            <div style="font-size:13px;color:var(--ash)">LTV к стоимости привлечения · норма ≥ 3×</div>
+            <div class="bars" style="margin-top:20px">
+              <div class="bar-row"><span class="lab">«Приписали каналу»</span><div class="bar-track"><div class="bar-fill illusion">₽ 100к</div></div></div>
+              <div class="bar-row"><span class="lab">Реальный вклад</span><div class="bar-track"><div class="bar-fill real">₽ 38к</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STAT-BAND (наложение: вытянут вверх над hero) -->
+<div class="container" style="margin-top:-78px;margin-bottom:var(--s8);position:relative;z-index:3">
+  <div class="panel panel-navy panel-tex reveal">
+    <div class="stats">
+      <div class="stat"><div class="n">3</div><div class="l">модуля про измерение и деньги</div></div>
+      <div class="stat"><div class="n">40+</div><div class="l">первоисточников и исследований</div></div>
+      <div class="stat"><div class="n">0 ₽</div><div class="l">введение и первый урок - без карты</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CALCULATOR (уникальный интерактив) -->
+<section class="section bg-cream" id="calc">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Прикинем за 30 секунд</span>
+      <h2 style="margin-top:14px">Окупается ли ваш <span class="hl">маркетинг</span>?</h2>
+      <p class="lead">Введите свои цифры - увидите LTV, отношение к стоимости привлечения и срок окупаемости. Это первая модель, которую вы построите в курсе.</p>
+    </div>
+    <div class="calc reveal" style="--rd:80ms">
+      <div class="calc-inputs">
+        <div class="field">
+          <div class="row"><label>Средний платёж клиента в месяц</label><span class="val" id="vArpu">2 000 ₽</span></div>
+          <input type="range" id="arpu" min="500" max="15000" step="100" value="2000">
+        </div>
+        <div class="field">
+          <div class="row"><label>Маржа <span class="hint">(сколько остаётся после затрат)</span></label><span class="val" id="vMargin">70%</span></div>
+          <input type="range" id="margin" min="20" max="95" step="1" value="70">
+        </div>
+        <div class="field">
+          <div class="row"><label>Сколько месяцев клиент с вами</label><span class="val" id="vLife">24 мес</span></div>
+          <input type="range" id="life" min="3" max="60" step="1" value="24">
+        </div>
+        <div class="field">
+          <div class="row"><label>Стоимость привлечения клиента (CAC)</label><span class="val" id="vCac">6 000 ₽</span></div>
+          <input type="range" id="cac" min="1000" max="50000" step="500" value="6000">
+        </div>
+      </div>
+      <div class="calc-out">
+        <div>
+          <div style="font-size:13px;color:rgba(250,250,247,.6);text-transform:uppercase;letter-spacing:.08em;font-weight:600">Пожизненная ценность клиента (LTV)</div>
+          <div class="big" id="oLtv">33 600 ₽</div>
+        </div>
+        <div class="row"><span>LTV : CAC</span><b id="oRatio">5,6×</b></div>
+        <div class="row"><span>Окупаемость привлечения</span><b id="oPayback">4,3 мес</b></div>
+        <div class="verdict good" id="oVerdict">Окупается с запасом - экономика здоровая.</div>
+      </div>
+    </div>
+    <p class="measure" style="margin-top:22px;font-size:14px;color:var(--ash)">Это упрощённая модель «на салфетке». В курсе - как считать LTV по когортам, учитывать удержание и отток, и не обманывать себя средними. <span class="mk mk-debated" style="vertical-align:middle">С оговорками</span></p>
+  </div>
+</section>
+
+<!-- ФОТО-БАУНД (драматичный тёмный момент: сигнал из шума) -->
+<section class="section bg-offwhite">
+  <div class="container">
+    <div class="band-img reveal" style="background-image:url('assets/img/signal-in-noise.jpg')">
+      <div class="band-c">
+        <span class="eyebrow">Суть подхода</span>
+        <h2 style="margin-top:14px">Среди шума отчётов - найти реальный сигнал.</h2>
+        <p style="margin-top:14px;font-size:18px">Большинство цифр в маркетинге - совпадения, выданные за результат. Доказательный подход отделяет вклад от иллюзии.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПОЧЕМУ ЦИФРЫ ВРУТ -->
+<section class="section bg-offwhite" id="why">
+  <div class="container" style="text-align:center">
+    <span class="eyebrow reveal" style="justify-content:center">Где теряются деньги</span>
+    <h2 class="reveal" style="font-size:clamp(38px,7vw,92px);line-height:.98;letter-spacing:-.035em;margin:18px auto 0;max-width:15ch">Отчёты завышают вклад в <span class="hl">2,6 раза</span></h2>
+    <p class="lead reveal" style="margin:24px auto 0;max-width:60ch">Last-click приписывает продажи последнему касанию, корреляция выдаётся за причину, рост совпадает с сезоном. Реальный инкрементальный вклад - в разы меньше приписанного.</p>
+    <div class="fig reveal" style="max-width:560px;margin:var(--s9) auto 0;text-align:left">
+      <div class="fig-h">
+        <div class="t">Сколько на самом деле<br>принёс канал</div>
+        <div class="big">2,6<em>×</em></div>
+      </div>
+      <div class="fig-sub">приписано аналитикой vs реальный инкрементальный вклад</div>
+      <div class="fig-scale">
+        <div class="fig-bar"><span class="ill" style="--w:88%">88%</span></div>
+        <div class="fig-lab">Приписано - last-click атрибуция</div>
+        <div class="fig-bar"><span class="rea" style="--w:34%">34%</span></div>
+        <div class="fig-lab">Реальный вклад - holdout-тест</div>
+      </div>
+      <div class="fig-gap"><b>54 п.п.</b> приписаны ошибочно - это бюджет, который вы переоцениваете или режете вслепую.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ЧТО ДАЁТ МЕТОД (фото-панель + бенто) -->
+<section class="section bg-cream" id="method">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Что вы научитесь делать</span>
+      <h2 style="margin-top:14px">Считать <span class="hl">вклад</span>, а не совпадения.</h2>
+      <p class="lead">Из разрозненных отчётов - в систему, где видно, что реально двигает деньги.</p>
+    </div>
+    <div class="bento">
+      <div class="card wide reveal panel-tex" style="background:var(--navy);border-color:var(--navy-mid)"><span class="mk mk-proven" style="margin-bottom:16px">Доказано · база</span><h3 style="color:var(--offwhite);font-size:clamp(24px,3vw,32px)">Холдаут и гео-эксперименты</h3><p style="margin-top:12px;color:rgba(250,250,247,.82);max-width:46ch">Отключаете канал на части аудитории или регионов и измеряете реальную разницу. Золотой стандарт причинности - с него и начинаем.</p></div>
+      <div class="card reveal"><span class="mk mk-proven" style="margin-bottom:14px">Доказано</span><h3>Инкрементальность и MMM</h3><p style="margin-top:8px">Сколько добавил канал сверх того, что было бы и так.</p></div>
+      <div class="card reveal" style="--rd:70ms"><span class="mk mk-proven" style="margin-bottom:14px">Доказано</span><h3>LTV, CAC и payback</h3><p style="margin-top:8px">Когда привлечение окупается и сколько клиент стоит.</p></div>
+      <div class="card wide reveal" style="--rd:140ms"><span class="mk mk-debated" style="margin-bottom:14px">С оговорками</span><h3>Баланс 60/40 - бренд и перформанс</h3><p style="margin-top:8px">Бине-Филд: долгосрочный рост требует и бренда, и продаж. Пропорция зависит от категории - не догма.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- КАК В КУРСЕ (lesson preview) -->
+<section class="section bg-offwhite">
+  <div class="container">
+    <div class="split">
+      <div class="reveal" style="--rd:90ms">
+        <div class="screen">
+          <div class="bar"><i></i><i></i><i></i><span class="path">программа · модуль 8 · урок 8.3</span></div>
+          <div class="body">
+            <div style="font-size:12px;color:var(--ash);font-family:ui-monospace,monospace;margin-bottom:10px">Модуль 8 → Измерение и каузальность</div>
+            <div style="font-family:var(--display);font-weight:600;font-size:20px;color:var(--ink);line-height:1.2;letter-spacing:-.01em">Holdout-тест: как отличить вклад канала от совпадения</div>
+            <div style="display:flex;gap:8px;margin:14px 0">
+              <span class="pill">12 мин</span><span class="pill">Тест в конце</span>
+            </div>
+            <div class="source"><div class="q">Инкрементальность - единственный способ понять, что произошло бы без рекламы.</div><div class="cite">Gordon et al. (2019), эксперименты на больших платформах</div></div>
+            <div style="margin-top:14px"><span class="mk mk-proven">Доказано</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Как это выглядит внутри</span>
+        <h2 style="margin-top:14px">Каждый тезис - с <span class="hl">меткой</span> силы доказательств.</h2>
+        <p class="lead measure" style="margin-top:18px">Вы всегда видите, на чём стоит утверждение: воспроизведено в данных, работает с оговорками или это популярный миф. Это и отличает курс от пересказа чужих мнений.</p>
+        <a class="btn btn-ghost" href="#" style="margin-top:24px">Открыть программу целиком <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ИСТОЧНИКИ (фото-панель + цитаты) -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="panels-2 lopsided reveal" style="margin-bottom:var(--s8)">
+      <div class="photo-slot" style="padding:0;overflow:hidden;align-items:stretch;border-radius:var(--r-lg);min-height:260px"><img src="assets/img/first-sources.jpg" alt="первоисточники" onerror="this.remove()" style="width:100%;height:100%;object-fit:cover"></div>
+      <div style="display:flex;flex-direction:column;justify-content:center;padding-left:var(--s4)">
+        <span class="eyebrow">Откуда это</span>
+        <h2 style="margin-top:14px">Не «по опыту» - по <span class="hl">первоисточникам</span>.</h2>
+        <p class="lead" style="margin-top:14px">За каждым тезисом - исследование с именем и годом, а не пересказ гуру.</p>
+      </div>
+    </div>
+    <div class="reveal" style="margin-bottom:var(--s5)">
+      <div class="card tick" style="padding:var(--s8)">
+        <div style="font-family:var(--display);font-weight:600;font-size:clamp(22px,2.6vw,30px);line-height:1.32;color:var(--ink);letter-spacing:-.01em">«Долгосрочный рост даёт бренд, краткосрочные продажи - активация. Перекос в любую сторону убивает эффективность».</div>
+        <div class="cite" style="margin-top:18px;font-size:14px">Binet &amp; Field, «The Long and the Short of It» (2013)</div>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card tick reveal"><div style="font-size:16.5px;line-height:1.5;color:var(--ink)">Полевые эксперименты показали: реальная отдача рекламы часто в разы ниже приписанной атрибуцией.</div><div class="cite" style="margin-top:14px">Gordon, Zettelmeyer et al. (2019)</div></div>
+      <div class="card tick reveal" style="--rd:70ms"><div style="font-size:16.5px;line-height:1.5;color:var(--ink)">Рост - это про проникновение и доступность памяти, а не про лояльность немногих.</div><div class="cite" style="margin-top:14px">Sharp, «How Brands Grow» (2010)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- КАКИЕ МОДУЛИ -->
+<section class="section bg-offwhite">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Закрывают эту тему</span>
+      <h2 style="margin-top:14px">Три модуля программы.</h2>
+    </div>
+    <div class="reveal">
+      <div class="mod"><span class="mn">08</span><span class="mt">Измерение и причинно-следственный анализ</span><span class="mm">holdout · geo · MMM · инкрементальность</span></div>
+      <div class="mod"><span class="mn">07</span><span class="mt">LTV и unit-экономика</span><span class="mm">когорты · CAC · payback · NRR</span></div>
+      <div class="mod"><span class="mn">06</span><span class="mt">Pricing для SaaS</span><span class="mm">якорение · тесты цен · pain of paying</span></div>
+    </div>
+    <p class="reveal" style="margin-top:18px;font-size:14.5px;color:var(--ash)">Смежная тема - как ставить и тестировать цену - раскрыта отдельным разбором: <a href="pricing.html" style="color:var(--navy);font-weight:600">Ставить цену, а не угадывать <span class="arr">→</span></a></p>
+    <a class="btn btn-ghost" href="index.html#inside" style="margin-top:20px">Вся программа · 13 модулей <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- МИНИ-КЕЙС -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="panel panel-navy panel-tex reveal" style="max-width:1000px;margin:0 auto">
+      <div class="split" style="align-items:center;gap:var(--s8)">
+        <div>
+          <span class="pill" style="margin-bottom:18px">Как это работает · из исследований</span>
+          <div style="font-family:var(--display);font-weight:700;font-size:clamp(72px,11vw,124px);color:var(--lime);line-height:.82;letter-spacing:-.04em">−33%</div>
+          <div style="color:rgba(250,250,247,.72);margin-top:16px;max-width:300px;font-size:15px">просадка заявок при отключённой рекламе - а в отчётах канал «давал» половину</div>
+        </div>
+        <div>
+          <h3 style="color:var(--offwhite)">«Контекст приносит половину лидов» - пока не выключили его в одном регионе</h3>
+          <p style="color:rgba(250,250,247,.82);margin-top:14px">Гео-холдаут показал: остальное приходило бы и так - из брендового спроса. Бюджет перераспределили, окупаемость выросла без роста затрат.</p>
+          <span class="mk mk-debated" style="margin-top:18px;display:inline-flex">С оговорками: зависит от категории</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- АВТОР -->
+<section class="section-tight bg-offwhite">
+  <div class="container">
+    <div class="author reveal" style="max-width:820px;margin:0 auto">
+      <img class="ph" src="assets/photo-alexey.jpeg" alt="Алексей Пряхин" width="96" height="96">
+      <div>
+        <div class="nm">Алексей Пряхин</div>
+        <div class="ro">13+ лет в маркетинге, сейчас CMO «Моё Дело». Раньше - Яндекс Маркет, Касперский, Профи.ру. Защищал маркетинг-бюджеты перед финансами и советом - на цифрах, а не на вере.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-dark panel-tex" style="position:relative">
+  <div class="container" style="text-align:center">
+    <div class="reveal" style="max-width:720px;margin:0 auto">
+      <span class="eyebrow" style="justify-content:center">Ранний доступ · 20 мест</span>
+      <h2 style="margin-top:16px">Начните с измерения&nbsp;- <span class="hl">введение и первый урок бесплатно</span>.</h2>
+      <p class="lead" style="margin-top:18px">Введение и первый урок открыты сразу, без карты. Посмотрите формат и метку доказательности на реальном уроке.</p>
+      <div style="display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap">
+        <a class="btn btn-lime btn-lg" href="index.html#price">Начать бесплатно <span class="arr">→</span></a>
+        <a class="btn btn-ghost btn-lg" href="index.html">На главную</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-tight bg-offwhite">
+  <div class="container" style="max-width:820px">
+    <div class="section-head reveal" style="margin-bottom:var(--s6)"><h2>Частые вопросы</h2></div>
+    <div class="acc reveal">
+      <details><summary>Нужна ли математика и аналитики в штате?<span class="ic"></span></summary><div class="a">Нет. Логику холдаута и unit-экономики объясняем на пальцах и на готовых шаблонах. Глубокая статистика - опционально, для тех, кому нужно.</div></details>
+      <details><summary>У меня маленький бюджет - это вообще применимо?<span class="ic"></span></summary><div class="a">Да. Гео- и holdout-логику можно применять и на скромных бюджетах; смысл - перестать платить за то, что и так бы случилось.</div></details>
+      <details><summary>Чем это отличается от курса по сквозной аналитике?<span class="ic"></span></summary><div class="a">Сквозная аналитика отвечает «что произошло». Здесь - «что произошло бы без рекламы», то есть причинность и реальный вклад. Это разные вопросы.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="grid">
+      <a class="brand" href="index.html" style="display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;color:var(--navy)"><span style="width:24px;height:24px;background:var(--lime);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px">М</span> Маркетинг от первоисточников</a>
+      <div style="display:flex;gap:22px;flex-wrap:wrap">
+        <a href="index.html">Главная</a><a href="index.html#price">Цена</a><a href="index.html#faq">FAQ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Калькулятор окупаемости */
+(function(){
+  var fmt=new Intl.NumberFormat('ru-RU');
+  var arpu=document.getElementById('arpu'),margin=document.getElementById('margin'),life=document.getElementById('life'),cac=document.getElementById('cac');
+  function calc(){
+    var a=+arpu.value,m=+margin.value/100,l=+life.value,c=+cac.value;
+    var ltv=a*m*l, ratio=ltv/c, monthly=a*m, payback=monthly>0?c/monthly:0;
+    document.getElementById('vArpu').textContent=fmt.format(a)+' ₽';
+    document.getElementById('vMargin').textContent=margin.value+'%';
+    document.getElementById('vLife').textContent=l+' мес';
+    document.getElementById('vCac').textContent=fmt.format(c)+' ₽';
+    document.getElementById('oLtv').textContent=fmt.format(Math.round(ltv))+' ₽';
+    document.getElementById('oRatio').textContent=ratio.toFixed(1).replace('.',',')+'×';
+    document.getElementById('oPayback').textContent=(payback<1?'< 1':payback.toFixed(1).replace('.',','))+' мес';
+    var v=document.getElementById('oVerdict');
+    if(ratio>=3){v.className='verdict good';v.textContent='Окупается с запасом - экономика здоровая.';}
+    else if(ratio>=1){v.className='verdict good';v.textContent='Окупается, но запас тонкий - есть что улучшать.';}
+    else{v.className='verdict bad';v.textContent='Привлечение не окупается - каждый клиент в минус.';}
+  }
+  [arpu,margin,life,cac].forEach(function(el){el.addEventListener('input',calc)});
+  calc();
+})();
+/* Reveal on scroll */
+(function(){
+  var root=document.documentElement;
+  if(!root.classList.contains('has-reveal'))return;
+  try{
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if(!els.length){root.classList.remove('has-reveal');return;}
+    els.forEach(function(el){var p=el.parentElement;if(!p)return;var sibs=[].filter.call(p.children,function(c){return c.classList&&c.classList.contains('reveal')});var i=sibs.indexOf(el);if(i>0&&!el.style.getPropertyValue('--rd'))el.style.setProperty('--rd',Math.min(i,5)*70+'ms')});
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(el){io.observe(el)});
+  }catch(e){root.classList.remove('has-reveal')}
+})();
+</script>
+  <script src="review.js" defer></script>
+</body>
+</html>

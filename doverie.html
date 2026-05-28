@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Отличать рабочее от модного - Маркетинг от первоисточников</title>
+<meta name="description" content="Как отличать воспроизведённое в данных от уверенного шума, не вестись на мифы и зомби-эффекты. Когнитивная база и критическая гигиена.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="stylesheet" href="app.css">
+<script>
+(function(){try{var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!rm&&'IntersectionObserver' in window)document.documentElement.classList.add('has-reveal');}catch(e){}})();
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <a class="brand" href="index.html"><span class="mark">М</span> Маркетинг от первоисточников</a>
+    <span class="spacer"></span>
+    <a class="back" href="index.html#cep">← Все ситуации</a>
+    <a class="btn btn-primary btn-sm" href="index.html#price" style="padding:11px 20px;font-size:14px">Начать бесплатно <span class="arr">→</span></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header style="background:linear-gradient(165deg,var(--cream),var(--offwhite) 62%);padding:var(--section-y) 0 130px">
+  <div class="container">
+    <div class="hero-asym">
+      <div class="reveal">
+        <span class="eyebrow">Доверие · отличать рабочее</span>
+        <h1 style="margin-top:24px;line-height:1.08">Звучит <span class="hl">уверенно</span> - ещё не значит правда.</h1>
+        <p class="lead measure" style="margin-top:30px">Подрядчики, гуру, нейросети и сильные коллеги говорят уверенно - и сами в это верят. Но на слух доказательство от мнения не отличить. Этот блок даёт фильтр: что воспроизводится в данных, а что - уверенный шум.</p>
+        <div style="display:flex;gap:14px;margin-top:40px;flex-wrap:wrap">
+          <a class="btn btn-primary btn-lg" href="#quiz">Проверить себя <span class="arr">→</span></a>
+          <a class="btn btn-ghost btn-lg" href="#method">Что внутри</a>
+        </div>
+      </div>
+      <div class="reveal" style="--rd:90ms">
+        <div class="screen">
+          <div class="bar"><i></i><i></i><i></i><span class="path">урок · маркер доказательности</span></div>
+          <div class="body" style="background:var(--cream)">
+            <div style="font-size:12px;color:var(--ash);font-family:ui-monospace,monospace;margin-bottom:10px">Популярный тезис</div>
+            <div style="font-family:var(--display);font-weight:600;font-size:21px;line-height:1.25;color:var(--ink);letter-spacing:-.01em">«Бренды растут за счёт лояльности немногих фанатов»</div>
+            <div style="margin:16px 0"><span class="mk mk-myth">Миф</span></div>
+            <div class="source"><div class="q">Рост идёт от проникновения и лёгких покупателей, а не от лояльного ядра.</div><div class="cite">Sharp, «How Brands Grow» (2010)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STAT-BAND -->
+<div class="container" style="margin-top:-78px;margin-bottom:var(--s8);position:relative;z-index:3">
+  <div class="panel panel-navy reveal">
+    <div class="stats">
+      <div class="stat"><div class="n">2</div><div class="l">модуля про суждение и гигиену</div></div>
+      <div class="stat"><div class="n">40+</div><div class="l">первоисточников и репликаций</div></div>
+      <div class="stat"><div class="n">0 ₽</div><div class="l">введение и первый урок - без карты</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- КВИЗ: МИФ ИЛИ ДОКАЗАНО -->
+<section class="section bg-cream" id="quiz">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Проверьте свой фильтр</span>
+      <h2 style="margin-top:14px">Миф или <span class="hl">доказано</span>?</h2>
+      <p class="lead">Прочитайте тезис и решите, чему он соответствует. Это ровно тот навык, который тренирует блок.</p>
+    </div>
+    <div class="reveal" style="max-width:760px">
+      <div class="card" style="padding:var(--s8)">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px">
+          <span style="font-family:var(--display);font-weight:600;font-size:13px;color:var(--ash);text-transform:uppercase;letter-spacing:.06em">Тезис <span id="qn">1</span> из <span id="qt">5</span></span>
+          <span style="font-size:13px;color:var(--ash)">Счёт: <b id="qscore" style="font-family:var(--display);color:var(--navy)">0</b></span>
+        </div>
+        <div id="qstatement" style="font-family:var(--display);font-weight:600;font-size:clamp(22px,2.6vw,28px);line-height:1.3;color:var(--ink);letter-spacing:-.01em;min-height:2.6em">«Бренды растут за счёт лояльности немногих фанатов»</div>
+        <div id="qbtns" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+          <button class="btn btn-ghost" data-a="proven">Доказано</button>
+          <button class="btn btn-ghost" data-a="debated">С оговорками</button>
+          <button class="btn btn-ghost" data-a="myth">Миф</button>
+        </div>
+        <div id="qresult" style="display:none;margin-top:20px;padding:18px 20px;border-radius:12px;background:var(--cream)">
+          <div id="qverdict" style="margin-bottom:8px"></div>
+          <div id="qexpl" style="font-size:15px;line-height:1.5;color:var(--ink)"></div>
+          <div id="qsource" class="cite" style="margin-top:8px"></div>
+          <button class="btn btn-primary" id="qnext" style="margin-top:16px">Следующий <span class="arr">→</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПОЧЕМУ МЫ ОБМАНЫВАЕМСЯ (giant centered) -->
+<section class="section">
+  <div class="container" style="text-align:center">
+    <span class="eyebrow reveal" style="justify-content:center">Почему так легко обмануться</span>
+    <h2 class="reveal" style="font-size:clamp(36px,6.5vw,84px);line-height:1;letter-spacing:-.035em;margin:18px auto 0;max-width:16ch">Мозг любит уверенность <span class="hl">больше</span>, чем правду.</h2>
+    <p class="lead reveal" style="margin:24px auto 0;max-width:62ch">Беглость и уверенность мозг принимает за истинность (System 1). Громкое имя, гладкая презентация, «все так делают» - этого достаточно, чтобы поверить. Доказательность - это сознательная привычка проверять, а не доверять ощущению.</p>
+  </div>
+</section>
+
+<!-- ФОТО-БАУНД: из хаоса мнений -->
+<section class="section">
+  <div class="container">
+    <div class="band-img reveal" style="background-image:url('assets/img/chaos-to-order.jpg')">
+      <div class="band-c">
+        <span class="eyebrow">Суть подхода</span>
+        <h2 style="margin-top:14px">Из мешанины мнений - к тому, что воспроизводится.</h2>
+        <p style="margin-top:16px;font-size:18px">Не «кто громче и увереннее», а «что повторилось в данных у разных исследователей». Это и есть фильтр доказательности.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЧТО ДАЁТ МЕТОД (bento) -->
+<section class="section bg-cream" id="method">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">Что вы научитесь делать</span><h2 style="margin-top:14px">Отличать сигнал от <span class="hl">уверенного шума</span>.</h2></div>
+    <div class="bento">
+      <div class="card wide reveal" style="background:var(--navy);border-color:var(--navy-mid)"><span class="mk mk-proven" style="margin-bottom:16px">Доказано · база</span><h3 style="color:var(--offwhite);font-size:clamp(24px,3vw,32px)">Сила доказательств и репликации</h3><p style="margin-top:12px;color:rgba(250,250,247,.82);max-width:46ch">Что значит «воспроизведено», почему один эксперимент - не доказательство, и как кризис репликаций изменил то, чему можно верить.</p></div>
+      <div class="card reveal"><span class="mk mk-debated" style="margin-bottom:14px">С оговорками</span><h3>Границы обобщения</h3><p style="margin-top:8px">Где результат верен, а где его натянули за пределы данных.</p></div>
+      <div class="card reveal" style="--rd:70ms"><span class="mk mk-myth" style="margin-bottom:14px">Миф</span><h3>Зомби-эффекты</h3><p style="margin-top:8px">Power poses, прайминг, «правило 7» - почему живут, хотя не воспроизвелись.</p></div>
+      <div class="card wide reveal" style="--rd:140ms"><span class="mk mk-proven" style="margin-bottom:14px">Доказано</span><h3>Признаки карго-науки и шарлатанства</h3><p style="margin-top:8px">Чек-лист: как за минуту отличить доказательный тезис от красиво поданного мнения - у подрядчика, гуру или нейросети.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- КАК В КУРСЕ -->
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div class="reveal" style="--rd:90ms">
+        <div class="screen">
+          <div class="bar"><i></i><i></i><i></i><span class="path">программа · модуль 12 · урок 12.2</span></div>
+          <div class="body">
+            <div style="font-size:12px;color:var(--ash);font-family:ui-monospace,monospace;margin-bottom:10px">Модуль 12 → Критическая гигиена</div>
+            <div style="font-family:var(--display);font-weight:600;font-size:20px;line-height:1.2;color:var(--ink);letter-spacing:-.01em">Зомби-эффекты: почему опровергнутое продолжает жить</div>
+            <div style="display:flex;gap:8px;margin:14px 0"><span class="pill">10 мин</span><span class="pill">Чек-лист</span></div>
+            <div class="source"><div class="q">~40% классических эффектов соц-психологии не воспроизвелись при повторении.</div><div class="cite">Open Science Collaboration, Science (2015)</div></div>
+            <div style="margin-top:14px"><span class="mk mk-proven">Доказано</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Как это выглядит внутри</span>
+        <h2 style="margin-top:14px">Каждый тезис - с <span class="hl">меткой</span> силы доказательств.</h2>
+        <p class="lead measure" style="margin-top:18px">Вы всегда видите, на чём стоит утверждение: воспроизведено в данных, работает с оговорками или это популярный миф. Это и есть тренируемый навык - не верить на слово.</p>
+        <a class="btn btn-ghost" href="index.html#inside" style="margin-top:24px">Открыть программу целиком <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ИСТОЧНИКИ -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="panels-2 lopsided reveal" style="margin-bottom:var(--s8)">
+      <div class="photo-slot" style="padding:0;overflow:hidden;align-items:stretch;border-radius:var(--r-lg);min-height:260px"><img src="assets/img/first-sources.jpg" alt="первоисточники" onerror="this.remove()" style="width:100%;height:100%;object-fit:cover"></div>
+      <div style="display:flex;flex-direction:column;justify-content:center;padding-left:var(--s4)">
+        <span class="eyebrow">Откуда это</span>
+        <h2 style="margin-top:14px">Не «по опыту» - по <span class="hl">первоисточникам</span>.</h2>
+        <p class="lead" style="margin-top:14px">За каждым тезисом - исследование или репликация с именем и годом.</p>
+      </div>
+    </div>
+    <div class="reveal" style="margin-bottom:var(--s5)">
+      <div class="card tick" style="padding:var(--s8)"><div style="font-family:var(--display);font-weight:600;font-size:clamp(22px,2.6vw,30px);line-height:1.32;color:var(--ink);letter-spacing:-.01em">«Беглость восприятия мозг принимает за истинность: то, что легче понять, кажется более верным».</div><div class="cite" style="margin-top:18px;font-size:14px">Kahneman, «Thinking, Fast and Slow» (2011)</div></div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card tick reveal"><div style="font-size:16.5px;line-height:1.5;color:var(--ink)">Около 40% классических психологических эффектов не воспроизвелись при систематической репликации.</div><div class="cite" style="margin-top:14px">Open Science Collaboration (2015)</div></div>
+      <div class="card tick reveal" style="--rd:70ms"><div style="font-size:16.5px;line-height:1.5;color:var(--ink)">Закономерности роста брендов воспроизводятся в сотнях категорий - это и отличает их от моды.</div><div class="cite" style="margin-top:14px">Ehrenberg-Bass Institute</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- МОДУЛИ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">Закрывают эту тему</span><h2 style="margin-top:14px">Два модуля программы.</h2></div>
+    <div class="reveal">
+      <div class="mod"><span class="mn">01</span><span class="mt">Когнитивная база</span><span class="mm">System 1/2 · искажения · беглость · память</span></div>
+      <div class="mod"><span class="mn">12</span><span class="mt">Критическая гигиена</span><span class="mm">зомби-эффекты · мифы · признаки шарлатанства</span></div>
+    </div>
+    <a class="btn btn-ghost" href="index.html#inside" style="margin-top:28px">Вся программа · 13 модулей <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- МИНИ-КЕЙС (giant) -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="panel panel-navy reveal" style="max-width:1000px;margin:0 auto">
+      <div class="split" style="align-items:center;gap:var(--s8)">
+        <div>
+          <span class="pill" style="margin-bottom:18px">Кризис репликаций</span>
+          <div style="font-family:var(--display);font-weight:700;font-size:clamp(72px,11vw,124px);color:var(--lime);line-height:.82;letter-spacing:-.04em">~40%</div>
+          <div style="color:rgba(250,250,247,.72);margin-top:16px;max-width:300px;font-size:15px">классических психо-эффектов не воспроизвелись - а в маркетинге их до сих пор цитируют как закон</div>
+        </div>
+        <div>
+          <h3 style="color:var(--offwhite)">Почему «доказано исследованием» - ещё не доказательство</h3>
+          <p style="color:rgba(250,250,247,.82);margin-top:14px">Один яркий эксперимент попадает в книги и презентации, а провалившиеся повторы - нет. Курс учит спрашивать: это воспроизвели? в скольких категориях? кто-то независимый?</p>
+          <span class="mk mk-debated" style="margin-top:18px;display:inline-flex">С оговорками: контекст важен</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- АВТОР -->
+<section class="section-tight">
+  <div class="container">
+    <div class="author reveal" style="max-width:820px;margin:0 auto">
+      <img class="ph" src="assets/photo-alexey.jpeg" alt="Алексей Пряхин" width="96" height="96">
+      <div>
+        <div class="nm">Алексей Пряхин</div>
+        <div class="ro">13+ лет в маркетинге, сейчас CMO «Моё Дело». Раньше - Яндекс Маркет, Касперский, Профи.ру. Сам прошёл путь от «верю авторитетам» до «проверяю первоисточники».</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-dark" style="text-align:center">
+  <div class="container">
+    <div class="reveal" style="max-width:720px;margin:0 auto">
+      <span class="eyebrow" style="justify-content:center">Ранний доступ · 20 мест</span>
+      <h2 style="margin-top:16px">Перестаньте угадывать, кому верить&nbsp;- <span class="hl">научитесь&nbsp;проверять</span>.</h2>
+      <p class="lead" style="margin-top:18px">Введение и первый урок открыты сразу, без карты. Посмотрите формат и метку доказательности на реальном уроке.</p>
+      <div style="display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap">
+        <a class="btn btn-lime btn-lg" href="index.html#price">Начать бесплатно <span class="arr">→</span></a>
+        <a class="btn btn-ghost btn-lg" href="index.html">На главную</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-tight">
+  <div class="container" style="max-width:820px">
+    <div class="section-head reveal" style="margin-bottom:var(--s6)"><h2>Частые вопросы</h2></div>
+    <div class="acc reveal">
+      <details><summary>Это не превратится в занудство про статистику?<span class="ic"></span></summary><div class="a">Нет. Логику доказательности объясняем на узнаваемых примерах и мифах, без формул. Глубокая методология - опционально.</div></details>
+      <details><summary>Зачем мне это, если я не учёный?<span class="ic"></span></summary><div class="a">Чтобы не платить за чужие мнения. Навык отличать доказанное от модного экономит бюджет и нервы на каждом решении и подрядчике.</div></details>
+      <details><summary>А как же интуиция и опыт?<span class="ic"></span></summary><div class="a">Они важны - но их стоит проверять. Доказательный подход не отменяет опыт, а страхует от систематических ошибок, которым подвержены все.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="grid">
+      <a class="brand" href="index.html" style="display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;color:var(--navy)"><span style="width:24px;height:24px;background:var(--lime);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px">М</span> Маркетинг от первоисточников</a>
+      <div style="display:flex;gap:22px;flex-wrap:wrap"><a href="index.html">Главная</a><a href="index.html#price">Цена</a><a href="index.html#faq">FAQ</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Квиз «Миф или доказано» */
+(function(){
+  var items=[
+    {t:'«Бренды растут за счёт лояльности немногих фанатов»',a:'myth',e:'Рост идёт от проникновения и лёгких/новых покупателей, а не от лояльного ядра.',s:'Sharp, «How Brands Grow» (2010)'},
+    {t:'«Power poses» повышают уверенность и гормоны',a:'myth',e:'Эффект не воспроизвёлся в крупных репликациях. Классический зомби-эффект.',s:'Ranehill et al. (2015)'},
+    {t:'Эмоциональные кампании эффективнее в долгосроке',a:'proven',e:'Подтверждено на большой базе IPA - но именно в долгую, а не мгновенно.',s:'Binet & Field (2013)'},
+    {t:'«Правило 7 касаний» перед покупкой',a:'myth',e:'Красивое число без эмпирической базы. Касаний нужно столько, сколько нужно.',s:'первоисточника нет'},
+    {t:'«60/40 бренд/перформанс» - универсальный норматив',a:'debated',e:'Медиана для крупных FMCG-кампаний в UK. Не догма для B2B и малого бизнеса.',s:'Binet & Field, IPA Databank'}
+  ];
+  var i=0,score=0,answered=false;
+  var labels={proven:'Доказано',debated:'С оговорками',myth:'Миф'};
+  var cls={proven:'mk-proven',debated:'mk-debated',myth:'mk-myth'};
+  var st=document.getElementById('qstatement'),btns=document.getElementById('qbtns'),res=document.getElementById('qresult');
+  var verdict=document.getElementById('qverdict'),expl=document.getElementById('qexpl'),src=document.getElementById('qsource');
+  document.getElementById('qt').textContent=items.length;
+  function render(){
+    answered=false;
+    st.textContent=items[i].t;
+    document.getElementById('qn').textContent=i+1;
+    res.style.display='none';
+    btns.style.display='flex';
+    btns.querySelectorAll('button').forEach(function(b){b.disabled=false;b.style.opacity='1'});
+  }
+  btns.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(answered)return; answered=true;
+      var pick=b.dataset.a, correct=items[i].a;
+      if(pick===correct){score++;document.getElementById('qscore').textContent=score;}
+      btns.style.display='none';
+      verdict.innerHTML='<span class="mk '+cls[correct]+'">'+labels[correct]+'</span>'+(pick===correct?' <b style="color:var(--lime-dark);font-family:var(--display)">- верно</b>':' <b style="color:var(--ash);font-family:var(--display)">- вы выбрали «'+labels[pick]+'»</b>');
+      expl.textContent=items[i].e;
+      src.textContent=items[i].s;
+      res.style.display='block';
+      document.getElementById('qnext').textContent = (i>=items.length-1)?'Пройти заново':'Следующий →';
+    });
+  });
+  document.getElementById('qnext').addEventListener('click',function(){
+    i++; if(i>=items.length){i=0;score=0;document.getElementById('qscore').textContent=0;} render();
+  });
+  render();
+})();
+/* Reveal */
+(function(){
+  var root=document.documentElement;
+  if(!root.classList.contains('has-reveal'))return;
+  try{
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if(!els.length){root.classList.remove('has-reveal');return;}
+    els.forEach(function(el){var p=el.parentElement;if(!p)return;var sibs=[].filter.call(p.children,function(c){return c.classList&&c.classList.contains('reveal')});var k=sibs.indexOf(el);if(k>0&&!el.style.getPropertyValue('--rd'))el.style.setProperty('--rd',Math.min(k,5)*70+'ms')});
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(el){io.observe(el)});
+  }catch(e){root.classList.remove('has-reveal')}
+})();
+</script>
+  <script src="review.js" defer></script>
+</body>
+</html>
